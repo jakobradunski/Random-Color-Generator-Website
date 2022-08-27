@@ -1,4 +1,4 @@
-# Random-Color-Generator
+# Random Color Generator
 ### Quickly make random colors!
 
 ## Usage
