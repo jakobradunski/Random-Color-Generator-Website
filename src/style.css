@@ -1,18 +1,18 @@
 /* -------------------------------------------  */
-        /* Defining variables & values */
+/* Defining variables & values */
 /* -------------------------------------------  */
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 
-    font-family: 'Inter', sans-serif;
+    font-family: "Inter", sans-serif;
     /* Prevents "double tap to zoom" on touch/mobile devices */
     touch-action: manipulation;
 }
 
-:root{
+:root {
     --bgColor-startValue: rgb(60, 64, 67);
     --transparent-bg-white: rgba(255, 255, 255, 0.5);
     --transparent-bg-white-select: rgba(255, 255, 255, 0.8);
@@ -20,22 +20,22 @@
     --transparent-shadow: 10px 10px 5px rgba(0, 0, 0, 0.2);
 }
 
-h3{
+h3 {
     font-size: 3rem;
     font-weight: 500;
     /* filter: drop-shadow(3px 3px 0px rgba(0, 0, 0, 0.2)); */
 }
 
-h6{
+h6 {
     font-size: 1rem;
     font-weight: 700;
 }
 
 /* -------------------------------------------  */
-                /* Page Content */
+/* Page Content */
 /* -------------------------------------------  */
 
-.content{
+.content {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -44,9 +44,9 @@ h6{
     height: 100vh;
 }
 
-.warning-text{
+.warning-text {
     z-index: 1;
-    display: none; 
+    display: none;
     position: absolute;
     align-self: center;
     justify-content: center;
@@ -55,31 +55,31 @@ h6{
     margin-top: 2rem;
     transition: 200ms;
     background-color: beige;
-    border-radius: 15px;border-radius: 15px;
+    border-radius: 15px;
+    border-radius: 15px;
     padding: 30px;
     outline: red solid 10px;
 }
 
-.warning-text p{
+.warning-text p {
     font-size: 3rem;
     font-weight: 400;
 }
 
-.warning-text p span{
+.warning-text p span {
     font-weight: 700;
 }
 
-.bg-color{
+.bg-color {
     z-index: -10;
     position: absolute;
-    background-color: var(--bgColor-startValue, black); 
+    background-color: var(--bgColor-startValue, black);
     width: 100vw;
     height: 100vh;
     transition: background-color var(--background-color-transition-time);
-    
 }
 
-.main-text{
+.main-text {
     font-size: 3rem;
     background-color: var(--transparent-bg-white);
     border-radius: 15px;
@@ -87,92 +87,62 @@ h6{
     margin: 20px;
     box-shadow: var(--transparent-shadow);
     user-select: none;
-    /* -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px); */
 }
 
-.main-text:hover{
+.main-text:hover {
     background-color: var(--transparent-bg-white-select);
     cursor: pointer;
 }
 
-.current-bg-color-container{
+.current-bg-color-container {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    /* width: fit-content; */
+    /* width: min-content; */
     user-select: none;
-    /* background-color: rgba(0, 0, 0, 0.5); */
     background-color: var(--transparent-bg-white);
-    /* outline: black solid 10px; */
     border-radius: 15px;
-    padding: 20px 50px 20px 50px;
+    /* padding: 20px 50px 20px 50px; */
+    padding: 20px 4vw 20px 4vw;
     margin: 20px;
     box-shadow: var(--transparent-shadow);
-    /* color: white; */
 }
 
-.current-bg-color-container:hover{
+.current-bg-color-container:hover {
     cursor: pointer;
-    /* filter: invert(0.4); */
-    /* outline: rgb(255, 255, 255) solid 10px; */
     background-color: var(--transparent-bg-white-select);
-    /* transition: 500ms; */
 }
 
-.current-bg-color-container h3{
-    margin-right: 30px;
+.current-bg-color-container h3 {
+    margin-right: 5vw;
 }
-
 
 /* ------------------------------------------- */
-            /* Media Queries Below */
+/* Media Queries Below */
 /* -------------------------------------------  */
 
-@media (max-width:500px) {
-    .warning-text{
+@media (max-width: 500px) {
+    .warning-text {
         margin-top: 50px;
         padding: 5px;
         width: 90vw;
     }
 
-    .warning-text p{
+    .warning-text p {
         font-size: 1.2rem;
     }
 
-    .main-text{
+    .main-text {
         width: 85vw;
         padding: 20px;
         text-align: center;
     }
-    .main-text p{
+    .main-text p {
         text-align: center;
     }
-    .main-text h6{
+    .main-text h6 {
         margin-top: 20px;
         text-align: center;
-    }
-}
-
-@media (min-aspect-ratio: 2 / 1) {
-    .content{
-        flex-direction: row;
-        justify-content: start;
-        padding-left: 20vw;
-    }
-    .main-text{
-        padding: 10px;
-        width: min-content;
-    }
-
-    .warning-text{
-        margin-top: 50px;
-        padding: 5px;
-        width: 90vw;
-        justify-content: end;
-    }
-    .warning-text p{
-        font-size: 1.2rem;
     }
 }
