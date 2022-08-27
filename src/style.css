@@ -14,16 +14,27 @@
     --background-color-transition-time: 500ms;
 }
 
+h3{
+    font-size: 3rem;
+}
+
+h6{
+    font-size: 1rem;
+}
+
 /* Page Content */
 
-main{
+.content{
     display: flex;
     flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
     width: 100vw;
     height: 100vh;
 }
 
 .warning-text{
+    z-index: 1;
     display: none; 
     position: absolute;
     align-self: center;
@@ -57,15 +68,6 @@ main{
     
 }
 
-.content{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100vw;
-    height: 100vh;
-}
-
 .main-text{
     font-size: 3rem;
     background-color: var(--transparent-bg-white);
@@ -74,8 +76,8 @@ main{
     margin: 20px;
     box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.2);
     user-select: none;
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
+    /* -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px); */
 }
 
 main h6{
@@ -83,15 +85,46 @@ main h6{
     font-weight: 700;
 }
 
-.current-bg-color{
-    font-size: 3.5rem;
-    z-index: 200;
+.current-bg-color-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 50vw;
     user-select: none;
+    background-color: rgba(0, 0, 0, 0.5);
+    outline: black solid 10px;
+    border-radius: 15px;
+    padding: 20px 50px 20px 50px;
+    margin: 20px;
+    box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.2);
+    color: white;
 }
 
-.current-bg-color:hover{
+.current-bg-color-container:hover{
     cursor: pointer;
-    color: white;
+    /* filter: invert(0.4); */
+    /* outline: rgb(255, 255, 255) solid 10px; */
+    filter: drop-shadow(0 0 0 black);
+    transition: 50ms;
+}
+
+.current-bg-color-container h3{
+    filter: drop-shadow(5px 5px 0px rgba(0, 0, 0, 0.2));
+}
+
+.current-bg-color-container span{
+    display: flex;
+    justify-content: end;
+    width: 10px;
+    height: 4rem;
+    background-color: black;
+    border-radius: 15px;
+}
+
+.current-bg-color-container svg{
+    filter: invert(1);
+    filter: drop-shadow(5px 5px 0px rgba(0, 0, 0, 0.2));
 }
 
 /* Media Queries Below */

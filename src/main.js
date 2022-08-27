@@ -21,6 +21,9 @@ let bgColor = document.getElementById("bgColor");
 let warningText = document.getElementById("warningText");
 let currentBGColorText = document.getElementById("currentBGColorText");
 let callToAction = document.getElementById("callToAction");
+let currentBGColorContainer = document.getElementById(
+    "currentBGColorContainer"
+);
 
 // Toggles warning textbox and toggles autorun new color
 let showEpilepsyWarningAtStart = Boolean(false);
@@ -48,19 +51,12 @@ window.addEventListener("keydown", (e) => {
 });
 
 //FYI: "touchmove" is also wacky
-callToAction.addEventListener("touchstart", (e) => {
+callToAction.addEventListener("pointerdown", (e) => {
     currentBGColorText.innerText = makeNewBGColor();
     removeEpilepsyWarning();
 });
 
-["touchstart", "click"].forEach((evt) => {
-    currentBGColorText.addEventListener(evt, (e) => {
-        navigator.clipboard.writeText(currentBGColorText.innerText);
-        console.log(`Copied ${currentBGColorText.innerText} to clipboard!`);
-    });
-});
-
-currentBGColorText.addEventListener("pointerdown", (e) => {
+currentBGColorContainer.addEventListener("pointerdown", (e) => {
     navigator.clipboard.writeText(currentBGColorText.innerText);
     console.log(`Copied ${currentBGColorText.innerText} to clipboard!`);
 });

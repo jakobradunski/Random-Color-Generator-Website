@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+
+    <title>Random Color Generator</title>
+</head>
+
+<body>
+    <div class="warning-text" id="warningText">
+        <span>WARNING:</span> <br> Color changes may <span>trigger seizures</span> for people with photosensitive
+        epilepsy!
+        </p>
+    </div>
+    <div class="bg-color" id="bgColor"></div>
+    <div class="content">
+        <div class="main-text" id="callToAction">
+            <p>Press Spacebar!</p>
+            <h6>...and hold it down if you'd like a party! </h6>
+        </div>
+        <div class="current-bg-color-container" id="currentBGColorContainer">
+            <h3 class="current-bg-color" id="currentBGColorText" title="Click to copy!">#3c4043</h3>
+            <span></span>
+            <svg xmlns="http://www.w3.org/2000/svg" height="48" width="48">
+                <path
+                    d="M8.6 46.1q-1.95 0-3.35-1.4-1.4-1.4-1.4-3.35v-29.7H8.6v29.7h23.25v4.75Zm7.7-7.75q-1.95 0-3.325-1.375Q11.6 35.6 11.6 33.65V6.55q0-1.95 1.375-3.35Q14.35 1.8 16.3 1.8h21.1q1.95 0 3.35 1.4 1.4 1.4 1.4 3.35v27.1q0 1.95-1.4 3.325-1.4 1.375-3.35 1.375Zm0-4.7h21.1V6.55H16.3v27.1Zm0 0V6.55v27.1Z" />
+            </svg>
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+
+</html>
