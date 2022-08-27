@@ -1,3 +1,7 @@
+/* -------------------------------------------  */
+        /* Defining variables & values */
+/* -------------------------------------------  */
+
 *{
     margin: 0;
     padding: 0;
@@ -11,18 +15,25 @@
 :root{
     --bgColor-startValue: rgb(60, 64, 67);
     --transparent-bg-white: rgba(255, 255, 255, 0.5);
+    --transparent-bg-white-select: rgba(255, 255, 255, 0.8);
     --background-color-transition-time: 500ms;
+    --transparent-shadow: 10px 10px 5px rgba(0, 0, 0, 0.2);
 }
 
 h3{
     font-size: 3rem;
+    font-weight: 500;
+    /* filter: drop-shadow(3px 3px 0px rgba(0, 0, 0, 0.2)); */
 }
 
 h6{
     font-size: 1rem;
+    font-weight: 700;
 }
 
-/* Page Content */
+/* -------------------------------------------  */
+                /* Page Content */
+/* -------------------------------------------  */
 
 .content{
     display: flex;
@@ -74,60 +85,50 @@ h6{
     border-radius: 15px;
     padding: 20px 50px 20px 50px;
     margin: 20px;
-    box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.2);
+    box-shadow: var(--transparent-shadow);
     user-select: none;
     /* -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px); */
 }
 
-main h6{
-    font-size: 1rem;
-    font-weight: 700;
+.main-text:hover{
+    background-color: var(--transparent-bg-white-select);
+    cursor: pointer;
 }
 
 .current-bg-color-container{
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
-    width: 50vw;
+    justify-content: center;
+    /* width: fit-content; */
     user-select: none;
-    background-color: rgba(0, 0, 0, 0.5);
-    outline: black solid 10px;
+    /* background-color: rgba(0, 0, 0, 0.5); */
+    background-color: var(--transparent-bg-white);
+    /* outline: black solid 10px; */
     border-radius: 15px;
     padding: 20px 50px 20px 50px;
     margin: 20px;
-    box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.2);
-    color: white;
+    box-shadow: var(--transparent-shadow);
+    /* color: white; */
 }
 
 .current-bg-color-container:hover{
     cursor: pointer;
     /* filter: invert(0.4); */
     /* outline: rgb(255, 255, 255) solid 10px; */
-    filter: drop-shadow(0 0 0 black);
-    transition: 50ms;
+    background-color: var(--transparent-bg-white-select);
+    /* transition: 500ms; */
 }
 
 .current-bg-color-container h3{
-    filter: drop-shadow(5px 5px 0px rgba(0, 0, 0, 0.2));
+    margin-right: 30px;
 }
 
-.current-bg-color-container span{
-    display: flex;
-    justify-content: end;
-    width: 10px;
-    height: 4rem;
-    background-color: black;
-    border-radius: 15px;
-}
 
-.current-bg-color-container svg{
-    filter: invert(1);
-    filter: drop-shadow(5px 5px 0px rgba(0, 0, 0, 0.2));
-}
-
-/* Media Queries Below */
+/* ------------------------------------------- */
+            /* Media Queries Below */
+/* -------------------------------------------  */
 
 @media (max-width:500px) {
     .warning-text{

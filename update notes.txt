@@ -1,0 +1,12 @@
+CSS Responsive Design known issues:
+-   Generally the responsive design needs some polish.
+-   Because of a media query intended for mobile devices, at a 2 by 1 aspect ratio,
+    it will change the layout. I'm fixing it soon. Taking some time to polish the layout.
+
+Matching button styles! (comparing to previous commit)
+
+I might streamline this tool even more, by removing the
+"Press Spacebar" / "Tap here" button, as there is a new main element now, that is the hex color value.
+These call-to-action buttons would be replaced with text / tooltip-styled elements.
+
+Thanks for reading!
