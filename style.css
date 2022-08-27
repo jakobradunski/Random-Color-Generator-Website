@@ -1,0 +1,161 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    font-family: 'Inter', sans-serif;
+    /* Prevents "double tap to zoom" on touch/mobile devices */
+    touch-action: manipulation;
+}
+
+/* AS per MDN's recommendation (https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties) */
+/*...I've decided to put color variables under :root selector; :root usually refers to <html> tag */
+:root{
+    --bgColor-startValue: rgb(60, 64, 67);
+    --transparent-bg-white: rgba(255, 255, 255, 0.5);
+    --background-color-transition-time: 500ms;
+}
+
+/* Page Content */
+
+main{
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+}
+
+.warning-text{
+    display: none; 
+    position: absolute;
+    align-self: center;
+    justify-content: center;
+    width: 70vw;
+    text-align: center;
+    margin-top: 2rem;
+    transition: 200ms;
+    background-color: beige;
+    border-radius: 15px;border-radius: 15px;
+    padding: 30px;
+    outline: red solid 10px;
+}
+
+.warning-text p{
+    font-size: 3rem;
+    font-weight: 400;
+}
+
+.warning-text p span{
+    font-weight: 700;
+}
+
+.bg-color{
+    z-index: -10;
+    position: absolute;
+    background-color: var(--bgColor-startValue, black); /* formerly "chocolate" (yes) color */
+    width: 100vw;
+    height: 100vh;
+    transition: background-color var(--background-color-transition-time);
+    
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.main-text{
+    font-size: 3rem;
+    /* z-index: 4; */
+    background-color: var(--transparent-bg-white);
+    border-radius: 15px;
+    /* not really vibing with the outline ngl */
+    /* outline: rgba(255, 255, 255, 0.6) solid 3px; */
+    padding: 20px 50px 20px 50px;
+    margin: 20px;
+    box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.2);
+    user-select: none;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+}
+
+main h6{
+    font-size: 1rem;
+    font-weight: 700;
+    /* text-align: end; */
+    /* Yikes, why is this so creepy? */
+    /* letter-spacing: 0.24rem;*/
+}
+
+.current-bg-color{
+    /* display: inherit; */
+    font-size: 3.5rem;
+    z-index: 200;
+    user-select: none;
+}
+
+.current-bg-color:hover{
+    cursor: pointer;
+    color: white;
+    /* background-color: var(--transparent-bg-white); */
+}
+
+/* .current-bg-color:active{
+    color: white;
+} */
+
+/* Media Queries Below */
+
+@media (max-width:500px) {
+    .warning-text{
+        margin-top: 50px;
+        padding: 5px;
+        width: 90vw;
+    }
+
+    .warning-text p{
+        font-size: 1.2rem;
+    }
+
+    .main-text{
+        width: 85vw;
+        padding: 20px;
+        text-align: center;
+    }
+    .main-text p{
+        text-align: center;
+    }
+    .main-text h6{
+        margin-top: 20px;
+        text-align: center;
+    }
+}
+
+@media (min-aspect-ratio: 2 / 1) {
+    .content{
+        flex-direction: row;
+        /* This anchors the main-text, so that when a new color is generated, it may have a different total width and by default it would center it, so the content would move. May be irritating for some. This is the implementation. It's okay. 
+        Edit: Can't figure it out. Tried the thing below and some math with calc() to get sorta-center, but idk.
+        Nvm got it*/
+        justify-content: start;
+        padding-left: 20vw;
+    }
+    .main-text{
+        padding: 10px;
+        width: min-content;
+    }
+
+    .warning-text{
+        margin-top: 50px;
+        padding: 5px;
+        width: 90vw;
+        justify-content: end;
+    }
+    .warning-text p{
+        font-size: 1.2rem;
+    }
+}
