@@ -1,3 +1,4 @@
-Responsive Design Update!
+Local Storage Update!
 
-Now margins on the color-text-button clamps to a "min()" value in css.
+The colors you generate are now automatically saved in localStorage,
+meaning it will restore the color you currently have when you refresh the page.

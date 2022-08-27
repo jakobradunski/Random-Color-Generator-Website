@@ -3,7 +3,9 @@ window.onload = (event) => {
     if (showEpilepsyWarningAtStart) {
         showEpilepsyWarning();
     } else {
-        currentBGColorText.innerText = makeNewBGColor();
+        // currentBGColorText.innerText = makeNewBGColor();
+        makeNewBGColor(bgColorFromLocalStorage);
+        currentBGColorText.innerText = bgColorFromLocalStorage;
     }
     // The autoformatter does this. Yes, it is valid code...
     if (
@@ -24,13 +26,20 @@ let callToAction = document.getElementById("callToAction");
 let currentBGColorContainer = document.getElementById(
     "currentBGColorContainer"
 );
+let bgColorFromLocalStorage = localStorage.bgColor;
 
 // Toggles warning textbox and toggles autorun new color
 let showEpilepsyWarningAtStart = Boolean(false);
 
-function makeNewBGColor(params) {
-    return (bgColor.style.backgroundColor =
-        "#" + (0x1000000 + Math.random() * 0xffffff).toString(16).substr(1, 6));
+// Use promise and async here to save function to variable! ????
+function makeNewBGColor(color) {
+    if (color === undefined) {
+        return (bgColor.style.backgroundColor =
+            "#" +
+            (0x1000000 + Math.random() * 0xffffff).toString(16).substr(1, 6));
+    } else {
+        bgColor.style.backgroundColor = color;
+    }
 }
 
 function showEpilepsyWarning() {
@@ -46,6 +55,7 @@ function removeEpilepsyWarning() {
 window.addEventListener("keydown", (e) => {
     if (e.key === " ") {
         currentBGColorText.innerText = makeNewBGColor();
+        localStorage.setItem("bgColor", currentBGColorText.innerText);
         removeEpilepsyWarning();
     }
 });
@@ -53,6 +63,7 @@ window.addEventListener("keydown", (e) => {
 //FYI: "touchmove" is also wacky
 callToAction.addEventListener("pointerdown", (e) => {
     currentBGColorText.innerText = makeNewBGColor();
+    localStorage.setItem("bgColor", currentBGColorText.innerText);
     removeEpilepsyWarning();
 });
 
