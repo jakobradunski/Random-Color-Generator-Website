@@ -8,8 +8,6 @@
     touch-action: manipulation;
 }
 
-/* AS per MDN's recommendation (https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties) */
-/*...I've decided to put color variables under :root selector; :root usually refers to <html> tag */
 :root{
     --bgColor-startValue: rgb(60, 64, 67);
     --transparent-bg-white: rgba(255, 255, 255, 0.5);
@@ -52,7 +50,7 @@ main{
 .bg-color{
     z-index: -10;
     position: absolute;
-    background-color: var(--bgColor-startValue, black); /* formerly "chocolate" (yes) color */
+    background-color: var(--bgColor-startValue, black); 
     width: 100vw;
     height: 100vh;
     transition: background-color var(--background-color-transition-time);
@@ -70,11 +68,8 @@ main{
 
 .main-text{
     font-size: 3rem;
-    /* z-index: 4; */
     background-color: var(--transparent-bg-white);
     border-radius: 15px;
-    /* not really vibing with the outline ngl */
-    /* outline: rgba(255, 255, 255, 0.6) solid 3px; */
     padding: 20px 50px 20px 50px;
     margin: 20px;
     box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.2);
@@ -86,13 +81,9 @@ main{
 main h6{
     font-size: 1rem;
     font-weight: 700;
-    /* text-align: end; */
-    /* Yikes, why is this so creepy? */
-    /* letter-spacing: 0.24rem;*/
 }
 
 .current-bg-color{
-    /* display: inherit; */
     font-size: 3.5rem;
     z-index: 200;
     user-select: none;
@@ -101,12 +92,7 @@ main h6{
 .current-bg-color:hover{
     cursor: pointer;
     color: white;
-    /* background-color: var(--transparent-bg-white); */
 }
-
-/* .current-bg-color:active{
-    color: white;
-} */
 
 /* Media Queries Below */
 
@@ -138,9 +124,6 @@ main h6{
 @media (min-aspect-ratio: 2 / 1) {
     .content{
         flex-direction: row;
-        /* This anchors the main-text, so that when a new color is generated, it may have a different total width and by default it would center it, so the content would move. May be irritating for some. This is the implementation. It's okay. 
-        Edit: Can't figure it out. Tried the thing below and some math with calc() to get sorta-center, but idk.
-        Nvm got it*/
         justify-content: start;
         padding-left: 20vw;
     }
