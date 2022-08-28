@@ -1,9 +1,6 @@
 # Random Color Generator
 ### A Website that quickly lets you generate random colors!
 
-## Usage for experienced users
-- tldr: open ".src/index.html"
-
 ## How to download and use this tool
 - Download the [repository](https://github.com/jakobradunski/Random-Color-Generator-Website/archive/refs/heads/main.zip), or clone it via git / gh...
 - Extract the files to a folder of your choosing (via WinRAR / 7-zip, or any other software that lets you do so)
