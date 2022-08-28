@@ -3,11 +3,12 @@ window.onload = (event) => {
     if (showEpilepsyWarningAtStart) {
         showEpilepsyWarning();
     } else {
-        // currentBGColorText.innerText = makeNewBGColor();
         makeNewBGColor(bgColorFromLocalStorage);
         currentBGColorText.innerText = bgColorFromLocalStorage;
+        // bgColor.style.transitionDuration = 1000;
     }
     // The autoformatter does this. Yes, it is valid code...
+    // I am reworking this "autorun" section soon!
     if (
         /Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(
             navigator.userAgent
@@ -54,18 +55,21 @@ function removeEpilepsyWarning() {
 
 window.addEventListener("keydown", (e) => {
     if (e.key === " ") {
+        bgColor.style.transitionDuration = "500ms";
         currentBGColorText.innerText = makeNewBGColor();
         localStorage.setItem("bgColor", currentBGColorText.innerText);
         removeEpilepsyWarning();
     }
 });
 
-//FYI: "touchmove" is also wacky
 callToAction.addEventListener("pointerdown", (e) => {
+    bgColor.style.transitionDuration = "500ms";
     currentBGColorText.innerText = makeNewBGColor();
     localStorage.setItem("bgColor", currentBGColorText.innerText);
     removeEpilepsyWarning();
 });
+
+//Code to copy color to clipboard
 
 currentBGColorContainer.addEventListener("pointerdown", (e) => {
     navigator.clipboard.writeText(currentBGColorText.innerText);

@@ -16,7 +16,7 @@
     --bgColor-startValue: rgb(60, 64, 67);
     --transparent-bg-white: rgba(255, 255, 255, 0.5);
     --transparent-bg-white-select: rgba(255, 255, 255, 0.8);
-    --background-color-transition-time: 500ms;
+    /* --background-color-transition-time: 500ms; */
     --transparent-shadow: 10px 10px 5px rgba(0, 0, 0, 0.2);
 }
 
@@ -76,7 +76,7 @@ h6 {
     background-color: var(--bgColor-startValue, black);
     width: 100vw;
     height: 100vh;
-    transition: background-color var(--background-color-transition-time);
+    transition: background-color var(--background-color-transition-time, 0ms);
 }
 
 .main-text {
@@ -99,11 +99,9 @@ h6 {
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    /* width: min-content; */
     user-select: none;
     background-color: var(--transparent-bg-white);
     border-radius: 15px;
-    /* padding: 20px 50px 20px 50px; */
     padding-top: 20px;
     padding-bottom: 20px;
     padding-left: min(4vw, 50px);

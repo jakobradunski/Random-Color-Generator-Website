@@ -1,4 +1,7 @@
-Local Storage Update!
+Now it's showing the localStorage color immediately!
 
-The colors you generate are now automatically saved in localStorage,
-meaning it will restore the color you currently have when you refresh the page.
+No more "blinking" / changing color to grey and transitioning to stored color.
+The background color transition time is now set to 0ms, and then to 500ms
+once you start generating colors!
+
+Have fun!
