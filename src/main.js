@@ -75,7 +75,7 @@ bgColor.addEventListener("pointerdown", (e) => {
     }
 });
 
-callToAction.addEventListener("touchstart", (e) => {
+callToAction.addEventListener("pointerdown", (e) => {
     removeEpilepsyWarning();
     bgColor.style.transitionDuration = "500ms";
     currentBGColorText.innerText = makeNewBGColor();
