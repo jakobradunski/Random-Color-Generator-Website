@@ -1,7 +1,12 @@
-Now it's showing the localStorage color immediately!
+Today I found out that CSS elements with that contain negative values in z-index,
+for example "z-index: -1", are ignored by javascript event listeners.
 
-No more "blinking" / changing color to grey and transitioning to stored color.
-The background color transition time is now set to 0ms, and then to 500ms
-once you start generating colors!
+That means...
+I was finally able to properly implement the "photosensitive epilepsy" warning!
+It shows up on startup, and you can either ignore it by clicking around the warning box, dismissing it, or pressing space.
+If you don't want it to show up again, just check the "Do not show again" checkbox and it won't show up again,
+unless you manually delete localStorage.
 
-Have fun!
+For any developers, if you'd like to delete the setting, please use "localStorage.clear();" in the browser console.
+It will revert the settings and show the epilepsy warning again. 
+Please don't use it on any other site if you don't want your localStorage information to be removed on that site!

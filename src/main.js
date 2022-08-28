@@ -1,14 +1,12 @@
 window.onload = (event) => {
     console.log("Page is fully loaded!");
-    if (showEpilepsyWarningAtStart) {
+
+    if (showEpilepsyWarningAtStart == "true") {
         showEpilepsyWarning();
     } else {
         makeNewBGColor(bgColorFromLocalStorage);
         currentBGColorText.innerText = bgColorFromLocalStorage;
-        // bgColor.style.transitionDuration = 1000;
     }
-    // The autoformatter does this. Yes, it is valid code...
-    // I am reworking this "autorun" section soon!
     if (
         /Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(
             navigator.userAgent
@@ -21,7 +19,9 @@ window.onload = (event) => {
 };
 
 let bgColor = document.getElementById("bgColor");
+let warningTextWrapper = document.getElementById("warningTextWrapper");
 let warningText = document.getElementById("warningText");
+// dontShowWarningAgain is the checkbox in the warning textbox. Works without me defining it in JS.
 let currentBGColorText = document.getElementById("currentBGColorText");
 let callToAction = document.getElementById("callToAction");
 let currentBGColorContainer = document.getElementById(
@@ -30,7 +30,8 @@ let currentBGColorContainer = document.getElementById(
 let bgColorFromLocalStorage = localStorage.bgColor;
 
 // Toggles warning textbox and toggles autorun new color
-let showEpilepsyWarningAtStart = Boolean(false);
+let showEpilepsyWarningAtStart =
+    localStorage.getItem("showEpilepsyWarningAtStart") || "true";
 
 // Use promise and async here to save function to variable! ????
 function makeNewBGColor(color) {
@@ -55,18 +56,35 @@ function removeEpilepsyWarning() {
 
 window.addEventListener("keydown", (e) => {
     if (e.key === " ") {
+        removeEpilepsyWarning();
         bgColor.style.transitionDuration = "500ms";
         currentBGColorText.innerText = makeNewBGColor();
         localStorage.setItem("bgColor", currentBGColorText.innerText);
-        removeEpilepsyWarning();
     }
 });
 
-callToAction.addEventListener("pointerdown", (e) => {
+bgColor.addEventListener("pointerdown", (e) => {
+    removeEpilepsyWarning();
     bgColor.style.transitionDuration = "500ms";
     currentBGColorText.innerText = makeNewBGColor();
+
     localStorage.setItem("bgColor", currentBGColorText.innerText);
+    if (dontShowWarningAgain.checked === true) {
+        console.log("checkbox true");
+        localStorage.setItem("showEpilepsyWarningAtStart", "false");
+    }
+});
+
+callToAction.addEventListener("touchstart", (e) => {
     removeEpilepsyWarning();
+    bgColor.style.transitionDuration = "500ms";
+    currentBGColorText.innerText = makeNewBGColor();
+
+    localStorage.setItem("bgColor", currentBGColorText.innerText);
+    if (dontShowWarningAgain.checked === true) {
+        console.log("checkbox true");
+        localStorage.setItem("showEpilepsyWarningAtStart", "false");
+    }
 });
 
 //Code to copy color to clipboard
