@@ -1,12 +1,6 @@
-Today I found out that CSS elements with that contain negative values in z-index,
-for example "z-index: -1", are ignored by javascript event listeners.
+- fixed a bug where pressing space while the epilepsy warning was up
+would close it, but wouldn't save the users preference of whether to
+show the epilepsy warning again or not. 
 
-That means...
-I was finally able to properly implement the "photosensitive epilepsy" warning!
-It shows up on startup, and you can either ignore it by clicking around the warning box, dismissing it, or pressing space.
-If you don't want it to show up again, just check the "Do not show again" checkbox and it won't show up again,
-unless you manually delete localStorage.
-
-For any developers, if you'd like to delete the setting, please use "localStorage.clear();" in the browser console.
-It will revert the settings and show the epilepsy warning again. 
-Please don't use it on any other site if you don't want your localStorage information to be removed on that site!
+- added a popup / notification that pops for a brief moment when a color copied
+via the button on screen.
