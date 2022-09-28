@@ -50,10 +50,14 @@ h6 {
 }
 
 .warning-text-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: absolute;
     display: grid;
-    width: 100vw;
+    /* width: min(50vw, 1000px); */
     height: 100vh;
+    width: 100vw;
     place-items: center;
 }
 
@@ -64,6 +68,7 @@ h6 {
     /* position: absolute; */
     /* width: fit-content;
     height: fit-content; */
+    width: min(60vw, 800px);
     text-align: center;
     margin-top: 2rem;
     transition: 200ms;
@@ -133,8 +138,12 @@ h6 {
     margin-right: min(8vw, 30px);
 }
 
+/* .current-bg-color-container svg {
+    fill: white;
+} */
+
 .quick-notification {
-    display: none;
+    opacity: 0;
     position: absolute;
     bottom: 5vh;
     background-color: var(--transparent-bg-white);
@@ -145,6 +154,7 @@ h6 {
     padding-right: min(4vw, 50px);
     margin: 20px;
     box-shadow: var(--transparent-shadow);
+    transition: opacity 0.5s;
 }
 
 /* ------------------------------------------- */

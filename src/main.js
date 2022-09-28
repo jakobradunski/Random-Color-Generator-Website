@@ -18,6 +18,7 @@ window.onload = (event) => {
     }
 };
 
+let quickNotification = document.getElementById("quickNotification");
 let bgColor = document.getElementById("bgColor");
 let warningTextWrapper = document.getElementById("warningTextWrapper");
 let warningText = document.getElementById("warningText");
@@ -27,6 +28,7 @@ let callToAction = document.getElementById("callToAction");
 let currentBGColorContainer = document.getElementById(
     "currentBGColorContainer"
 );
+
 let bgColorFromLocalStorage = localStorage.bgColor;
 
 // Toggles warning textbox and toggles autorun new color
@@ -54,12 +56,22 @@ function removeEpilepsyWarning() {
 
 // Code to change color
 
+function saveEpilepsyWarningPreferenceToFalse() {
+    localStorage.setItem("bgColor", currentBGColorText.innerText);
+    if (dontShowWarningAgain.checked === true) {
+        console.log("checkbox true");
+        localStorage.setItem("showEpilepsyWarningAtStart", "false");
+    }
+}
+
 window.addEventListener("keydown", (e) => {
     if (e.key === " ") {
         removeEpilepsyWarning();
         bgColor.style.transitionDuration = "500ms";
         currentBGColorText.innerText = makeNewBGColor();
         localStorage.setItem("bgColor", currentBGColorText.innerText);
+
+        saveEpilepsyWarningPreferenceToFalse();
     }
 });
 
@@ -68,11 +80,7 @@ bgColor.addEventListener("pointerdown", (e) => {
     bgColor.style.transitionDuration = "500ms";
     currentBGColorText.innerText = makeNewBGColor();
 
-    localStorage.setItem("bgColor", currentBGColorText.innerText);
-    if (dontShowWarningAgain.checked === true) {
-        console.log("checkbox true");
-        localStorage.setItem("showEpilepsyWarningAtStart", "false");
-    }
+    saveEpilepsyWarningPreferenceToFalse();
 });
 
 callToAction.addEventListener("pointerdown", (e) => {
@@ -89,7 +97,18 @@ callToAction.addEventListener("pointerdown", (e) => {
 
 //Code to copy color to clipboard
 
+function notificationCopiedToClipboard() {
+    quickNotification.innerText =
+        currentBGColorText.innerText + " copied to clipboard!";
+    quickNotification.style.opacity = 1;
+    setTimeout(() => {
+        quickNotification.style.opacity = 0;
+    }, 3000);
+}
+
 currentBGColorContainer.addEventListener("pointerdown", (e) => {
     navigator.clipboard.writeText(currentBGColorText.innerText);
     console.log(`Copied ${currentBGColorText.innerText} to clipboard!`);
+
+    notificationCopiedToClipboard();
 });
